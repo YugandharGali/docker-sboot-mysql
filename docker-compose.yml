@@ -1,0 +1,29 @@
+version: '3'
+
+services: 
+
+  docker-sboot-user-app:
+    container_name: docker-sboot-user-app
+    build: ./
+    depends_on:
+      - docker-mysql
+    ports:
+      - 9090:9090
+    environment:
+      - DATABASE_HOST=docker-mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=dockerpass
+      - DATABASE_NAME=userdb  
+      - DATABASE_PORT=3306
+
+
+  docker-mysql:
+    container_name: docker-mysql
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD="secret"
+      - MYSQL_USER="django"
+      - MYSQL_PASSWORD="secret"
+      - MYSQL_DATABASE="myAppDB"
+      
+  
