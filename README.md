@@ -23,4 +23,4 @@ MYSQL_PASSWORD=password -d mysql:latest
 
 # OR
 # Use docker-compose file.
-# command -> docker-compose up
+# command -> docker-compose up.
